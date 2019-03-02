@@ -1,0 +1,39 @@
+<!-- https://material.angular.io/components/button/examples -->
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <div id="buttons-partidos">
+      <button
+        mat-flat-button
+        *ngFor="let partido of partidos"
+        [color]="selectedPartido === partido.name ? 'warn' : ''"
+        (click)="onClickPartido(partido.name)"
+      >
+        <img [src]="partido.icon" />
+      </button>
+    </div>
+
+    <!-- Ventana modal para el gráfico. -->
+    <div id="idGrafico" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="grafico">
+          <img src="assets/icons-/Grafico.png" alt="Gráfico" />
+        </div>
+      </div>
+    </div>
+    <!-- Ventana modal para la ayuda. -->
+    <div id="idAyuda" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="ayuda">
+          <img src="assets/ayuda/Ayuda.png" alt="Ayuda" />
+        </div>
+      </div>
+    </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div id="map"></div>
+  </mat-drawer-content>
+</mat-drawer-container>
